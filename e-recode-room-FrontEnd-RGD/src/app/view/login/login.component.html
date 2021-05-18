@@ -1,0 +1,34 @@
+
+<!-- page-wrapper Start-->
+<div class="page-wrapper">
+  <div class="auth-bg">
+    <div class="authentication-box">
+<!--      <div class="text-center"><img src="../assets/images/endless-logo.png" alt=""></div>-->
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="text-center">
+            <h4>LOGIN</h4>
+            <h6>Enter your Username and Password </h6>
+          </div>
+          <form class="theme-form" *ngIf="loginForm" [formGroup]="loginForm">
+            <div class="mb-3">
+              <label class="col-form-label pt-0">Username</label>
+              <input class="form-control" formControlName="username" id="exampleEmail" type="email" required="">
+            </div>
+            <div class="mb-3">
+              <label class="col-form-label">Password</label>
+              <input class="form-control" formControlName="password" id="examplePass" type="password" required="">
+            </div>
+            <div class="checkbox p-0">
+              <input id="checkbox1" type="checkbox">
+              <label for="checkbox1">Remember me</label>
+            </div>
+            <div class="form-row mt-3">
+              <button class="btn btn-primary btn-block w-100" type="submit" (click)="login()">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
