@@ -1,0 +1,26 @@
+
+===========  Database Queries (mysql) ============
+
+CREATE DATABASE e_recode_room;
+
+CREATE TABLE `users` (
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `nic` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `tel` int NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO users (id, nic, email, first_name, last_name, tel, position, password)
+VALUES (0, '97039649v', 'ps@gmail.com', 'Pasindu', 'Sandaruwan', '0773638063', 'Admin', '123');
+
+
+
+==========  END =============
+
+drop table users;
+

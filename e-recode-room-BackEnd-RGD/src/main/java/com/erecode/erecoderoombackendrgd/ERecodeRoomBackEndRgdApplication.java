@@ -1,4 +1,4 @@
-package com.example.erecoderoombackendrgd;
+package com.erecode.erecoderoombackendrgd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
