@@ -7,6 +7,10 @@ import {UserDashboardComponent} from './view/user-dashboard/user-dashboard.compo
 import {ADRecodeComponent} from './view/adrecode/adrecode.component';
 import {ADRCheckRecodeComponent} from './view/adrcheck-recode/adrcheck-recode.component';
 import {PrintRecodeComponent} from './view/print-recode/print-recode.component';
+import {UserManagementComponent} from './view/user-management/user-management.component';
+import {MainADComponent} from './view/main-ad/main-ad.component';
+import {MainADRComponent} from './view/main-adr/main-adr.component';
+import {MainPrintComponent} from './view/main-print/main-print.component';
 
 
 const routes: Routes = [
@@ -23,46 +27,39 @@ const routes: Routes = [
         component: DashboardComponent
       },
       {
+        path: 'user-management',
+        component: UserManagementComponent
+      }
+    ]
+  },
+  {
+    path: 'main-ad',
+    component: MainADComponent,
+    children: [
+      {
         path: 'ad-recode',
         component: ADRecodeComponent
-      },
+      }
+    ]
+  },
+  {
+    path: 'main-adr',
+    component: MainADRComponent,
+    children: [
       {
         path: 'adr-check-recode',
         component: ADRCheckRecodeComponent
-      },
+      }
+    ]
+  },
+  {
+    path: 'main-print',
+    component: MainPrintComponent,
+    children: [
       {
         path: 'print-recode',
         component: PrintRecodeComponent
-      },
-    //   {
-    //     path: 'view-case',
-    //     component: ViewCaseComponent
-    //   },
-    //   {
-    //     path: 'appointment',
-    //     component: AppointmentComponent
-    //   },
-    //   {
-    //     path: 'View-Case-In-Detail',
-    //     component: ViewCaseInDetailComponent
-    //   },
-    //   {
-    //     path: 'templates',
-    //     component: TemplatesComponent
-    //   },
-    //   {
-    //     path: 'clientSummary',
-    //     component: ClientSummaryComponent
-    //   },
-    //   {
-    //     path: 'caseSummary',
-    //     component: CaseSummaryComponent
-    //   },
-    //   {
-    //     path: 'appointmentSummary',
-    //     component: AppointmentSummaryComponent
-    //   }
-    //
+      }
     ]
   },
   {

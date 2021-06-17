@@ -13,6 +13,10 @@ import { UserDashboardComponent } from './view/user-dashboard/user-dashboard.com
 import {ADRecodeComponent} from './view/adrecode/adrecode.component';
 import { ADRCheckRecodeComponent } from './view/adrcheck-recode/adrcheck-recode.component';
 import { PrintRecodeComponent } from './view/print-recode/print-recode.component';
+import { UserManagementComponent } from './view/user-management/user-management.component';
+import { MainADComponent } from './view/main-ad/main-ad.component';
+import { MainADRComponent } from './view/main-adr/main-adr.component';
+import { MainPrintComponent } from './view/main-print/main-print.component';
 
 
 
@@ -27,7 +31,11 @@ import { PrintRecodeComponent } from './view/print-recode/print-recode.component
     UserDashboardComponent,
     ADRecodeComponent,
     ADRCheckRecodeComponent,
-    PrintRecodeComponent
+    PrintRecodeComponent,
+    UserManagementComponent,
+    MainADComponent,
+    MainADRComponent,
+    MainPrintComponent
 
   ],
   imports: [
