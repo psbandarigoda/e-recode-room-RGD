@@ -16,7 +16,15 @@ CREATE TABLE `users` (
 );
 
 INSERT INTO users (id, nic, email, first_name, last_name, tel, position, password)
-VALUES (0, '97039649v', 'ps@gmail.com', 'Pasindu', 'Sandaruwan', '0773638063', 'Admin', '123');
+VALUES (0, '970391649v', 'ps@gmail.com', 'Pasindu', 'Sandaruwan', '0773638063', 'ADMIN', '123');
+INSERT INTO users (id, nic, email, first_name, last_name, tel, position, password)
+VALUES (0, '960000000v', 'thilini@gmail.com', 'Thilini', 'Chathurangika', '0762325125', 'AD', '456');
+INSERT INTO users (id, nic, email, first_name, last_name, tel, position, password)
+VALUES (0, '950000000v', 'kawya@gmail.com', 'Kawya', 'Tharani', '075225896', 'ADR', '789');
+INSERT INTO users (id, nic, email, first_name, last_name, tel, position, password)
+VALUES (0, '940000000v', 'supun@gmail.com', 'Supun', 'Dharaka', '0764878958', 'PRINT', '369');
+INSERT INTO users (id, nic, email, first_name, last_name, tel, position, password)
+VALUES (0, '930000000v', 'umaya@gmail.com', 'Umaya', 'Dissanayake', '0768959632', 'USER', '147');
 
 
 
