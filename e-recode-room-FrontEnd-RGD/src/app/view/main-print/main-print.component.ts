@@ -11,6 +11,7 @@ export class MainPrintComponent implements OnInit {
   headerText: string;
   state: string;
   job: string;
+  username: string;
 
   constructor(private router: Router) {
     router.events.subscribe((val) => {
@@ -19,6 +20,7 @@ export class MainPrintComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.username = sessionStorage.getItem('loggedUser');
   }
 
   setHeaderTextAndButtons() {
@@ -46,6 +48,10 @@ export class MainPrintComponent implements OnInit {
     } else if (button === 'Print') {
       this.router.navigate(['/main-print/view-print']);
     }
+  }
+
+  logout(){
+    localStorage.clear();
   }
 
 }

@@ -11,6 +11,7 @@ export class MainADRComponent implements OnInit {
   headerText: string;
   state: string;
   job: string;
+  username: string;
 
   constructor(private router: Router) {
     router.events.subscribe((val) => {
@@ -19,6 +20,7 @@ export class MainADRComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.username = sessionStorage.getItem('loggedUser');
   }
 
   setHeaderTextAndButtons() {
@@ -46,6 +48,10 @@ export class MainADRComponent implements OnInit {
     } else if (button === 'View') {
       this.router.navigate(['/main-adr/view-adr']);
     }
+  }
+
+  logout(){
+    localStorage.clear();
   }
 
 }

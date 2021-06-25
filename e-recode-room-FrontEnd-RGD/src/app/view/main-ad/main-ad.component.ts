@@ -11,6 +11,7 @@ export class MainADComponent implements OnInit {
   headerText: string;
   state: string;
   job: string;
+  username: string;
 
   constructor(private router: Router) {
 
@@ -21,6 +22,7 @@ export class MainADComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.username = sessionStorage.getItem('loggedUser');
   }
 
   setHeaderTextAndButtons() {
@@ -48,6 +50,10 @@ export class MainADComponent implements OnInit {
     } else if (button === 'View') {
       this.router.navigate(['/main-ad/view-ad']);
     }
+  }
+
+  logout(){
+    localStorage.clear();
   }
 
 }

@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -11,8 +11,9 @@ export class MainComponent implements OnInit {
   headerText: string;
   state: string;
   job: string;
+  username: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
 
     router.events.subscribe((val) => {
       this.setHeaderTextAndButtons();
@@ -21,8 +22,9 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.username = sessionStorage.getItem('loggedUser');
   }
+
 
   setHeaderTextAndButtons() {
 
@@ -51,6 +53,9 @@ export class MainComponent implements OnInit {
     }
   }
 
+  logout(){
+      localStorage.clear();
+  }
 
 }
 
