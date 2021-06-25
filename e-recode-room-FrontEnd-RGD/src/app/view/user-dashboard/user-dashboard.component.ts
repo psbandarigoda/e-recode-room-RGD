@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDashboardComponent implements OnInit {
 
+  username: string;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.username = sessionStorage.getItem('loggedUser');
+  }
+
+  logout(){
+    localStorage.clear();
   }
 
 }

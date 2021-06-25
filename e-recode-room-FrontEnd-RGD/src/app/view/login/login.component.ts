@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component, Input, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserManagementService} from '../../service/UserManagementService';
 import {Users} from '../../model/Users';
@@ -57,16 +57,17 @@ export class LoginComponent implements OnInit {
       } else {
         this.loginValueIf = false;
         this.user = result;
+        sessionStorage.setItem('loggedUser', this.user.first_name);
         console.log(this.user);
-        if (this.user.position === 'Admin') {
+        if (this.user.position === 'ADMIN') {
           this.router.navigate([this.URL_RETURN_ADMIN]);
         } else if (this.user.position === 'AD') {
           this.router.navigate([this.URL_RETURN_AD]);
         } else if (this.user.position === 'ADR') {
           this.router.navigate([this.URL_RETURN_ADR]);
-        } else if (this.user.position === 'Print') {
+        } else if (this.user.position === 'PRINT') {
           this.router.navigate([this.URL_RETURN_PRINT]);
-        }  else if (this.user.position === 'User') {
+        }  else if (this.user.position === 'USER') {
           this.router.navigate([this.URL_RETURN_USER]);
         } else {
           console.log('Error User');
