@@ -23,10 +23,10 @@ public class UserManagementServiceIMPL implements UserManagementService {
 
     @Override
     @Transactional
-    public String register(Users users) {
+    public Users register(Users users) {
         System.out.println(users);
         Users users1 = userManagementRepo.save(users);
-        if(users1 != null) { return "users added"; } else { return null; }
+        return users1;
     }
 
     @Override
