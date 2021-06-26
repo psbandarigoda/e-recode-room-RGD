@@ -20,6 +20,6 @@ export class UserManagementService {
 
   // tslint:disable-next-line:typedef
   register(user: Users) {
-    return this.http.post<string>(environment.backend_url + URL + '/register', user);
+    return this.http.post<Users>(environment.backend_url + URL + '/register', user);
   }
 }

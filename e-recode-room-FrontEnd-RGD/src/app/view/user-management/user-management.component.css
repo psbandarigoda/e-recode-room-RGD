@@ -1,0 +1,8 @@
+.row .status{
+  background-color: green;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  height: 30px;
+}
