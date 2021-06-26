@@ -5,7 +5,9 @@ import com.erecode.erecoderoombackendrgd.service.UserManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -24,10 +26,15 @@ public class UserManagementController {
     }
 
     @PostMapping(value = "/register")
-    public String register(@RequestBody Users users) {
+    public Map<String, Object> register(@RequestBody Users users) {
         System.out.println(users);
-        String users1 = userManagementService.register(users);
-        return users1;
+        Users users1 = userManagementService.register(users);
+        Map<String, Object> responseMap = new HashMap<>();
+
+        responseMap.put("appointment", users1);
+        responseMap.put("status", 200);
+        responseMap.put("message", "Success");
+        return responseMap;
     }
 
     @GetMapping(value = "/login/{nic}/{password}")

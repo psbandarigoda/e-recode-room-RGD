@@ -8,7 +8,7 @@ public interface UserManagementService {
 
     List<Users> allUsers();
 
-    String register(Users users);
+    Users register(Users users);
 
     Users login(String nic , String password);
 
