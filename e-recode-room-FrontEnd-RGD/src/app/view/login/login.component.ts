@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
               private router: Router,
               private userManagementSVR: UserManagementService) { }
 
-  // tslint:disable-next-line:typedef
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -47,7 +46,6 @@ export class LoginComponent implements OnInit {
     this.URL_RETURN_USER = this.route.snapshot.queryParams.URL_RETURN_USER || 'userDashboard';
   }
 
-  // tslint:disable-next-line:typedef
   login() {
     const USER = this.loginForm.value.username.toString();
     const PASSWORD = this.loginForm.value.password.toString();

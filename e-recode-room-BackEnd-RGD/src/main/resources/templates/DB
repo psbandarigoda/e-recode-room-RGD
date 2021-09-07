@@ -1,3 +1,5 @@
+mysql start ubuntu
+mysql -u root -p mysql
 
 ===========  Database Queries (mysql) ============
 

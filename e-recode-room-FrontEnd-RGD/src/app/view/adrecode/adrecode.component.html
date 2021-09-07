@@ -8,66 +8,76 @@
             <h4 class="card-title mb-0">Add Recode</h4>
           </div>
           <div class="card-body">
-            <div class="row">
-              <div class="col-md-5">
-                <div class="mb-3">
-                  <label class="form-label">Reseller ID</label>
-                  <input class="form-control" type="text" placeholder="Reseller ID">
+            <form [formGroup]="recodeForm" name="recodeForm">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="mb-3">
+                    <label class="form-label">Reseller ID</label>
+                    <input [(ngModel)]="recode.nic"
+                           [ngClass]="{'is-invalid':recodeForm.get('nic').touched && recodeForm.get('nic').invalid}"
+                           class="form-control" formControlName="nic" name="nic" type="text" placeholder="Reseller ID">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-7">
+                  <div class="mb-3">
+                    <label class="form-label">Email address</label>
+                    <input [(ngModel)]="recode.email"
+                           [ngClass]="{'is-invalid':recodeForm.get('email').touched && recodeForm.get('email').invalid}"
+                           class="form-control" formControlName="email" name="email" type="email" placeholder="Email">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">First Name</label>
+                    <input [(ngModel)]="recode.first_name"
+                           [ngClass]="{'is-invalid':recodeForm.get('firstName').touched && recodeForm.get('firstName').invalid}"
+                           class="form-control" formControlName="firstName" name="firstName" type="text" placeholder="First Name">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input [(ngModel)]="recode.last_name"
+                           [ngClass]="{'is-invalid':recodeForm.get('lastName').touched && recodeForm.get('lastName').invalid}"
+                           class="form-control" formControlName="lastName" name="lastName" type="text" placeholder="Last Name">
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="mb-3">
+                    <label class="form-label">Address</label>
+                    <input class="form-control" type="text" placeholder="Home Address">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label class="form-label">Telephone</label>
+                    <input class="form-control" type="text" placeholder="Telephone">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="mb-3">
+                    <label class="form-label">City</label>
+                    <input class="form-control" type="text" placeholder="City">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <div class="mb-3">
+                    <label class="form-label">Postal Code</label>
+                    <input class="form-control" type="number" placeholder="ZIP Code">
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="mb-3">
+                    <label class="form-label">Position</label>
+                    <select class="form-select btn-square">
+                      <option value="0">--Select--</option>
+                      <option value="1">Reseller</option>
+                      <option value="2">Admin</option>
+                    </select>
+                  </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-7">
-                <div class="mb-3">
-                  <label class="form-label">Email address</label>
-                  <input class="form-control" type="email" placeholder="Email">
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-6">
-                <div class="mb-3">
-                  <label class="form-label">First Name</label>
-                  <input class="form-control" type="text" placeholder="First Name">
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-6">
-                <div class="mb-3">
-                  <label class="form-label">Last Name</label>
-                  <input class="form-control" type="text" placeholder="Last Name">
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="mb-3">
-                  <label class="form-label">Address</label>
-                  <input class="form-control" type="text" placeholder="Home Address">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="mb-3">
-                  <label class="form-label">Telephone</label>
-                  <input class="form-control" type="text" placeholder="Telephone">
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4">
-                <div class="mb-3">
-                  <label class="form-label">City</label>
-                  <input class="form-control" type="text" placeholder="City">
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="mb-3">
-                  <label class="form-label">Postal Code</label>
-                  <input class="form-control" type="number" placeholder="ZIP Code">
-                </div>
-              </div>
-              <div class="col-md-5">
-                <div class="mb-3">
-                  <label class="form-label">Position</label>
-                  <select class="form-select btn-square">
-                    <option value="0">--Select--</option>
-                    <option value="1">Reseller</option>
-                    <option value="2">Admin</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+            </form>
           </div>
           <div class="card-footer text-end">
             <button class="btn btn-primary" type="submit">Update Profile</button>
