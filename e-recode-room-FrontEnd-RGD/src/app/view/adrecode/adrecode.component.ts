@@ -15,15 +15,17 @@ export class ADRecodeComponent implements OnInit {
   recode: Recode = new Recode();
 
   recodeForm = new FormGroup({
-    nic: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    firstName: new FormControl(' ', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    // position: new FormControl('', Validators.required),
-    // address: new FormControl('', Validators.required),
-    // tel: new FormControl('', Validators.required),
-    // postal: new FormControl('', Validators.required),
-    // city: new FormControl('', Validators.required),
+    child_birthday: new FormControl('', Validators.required),
+    child_birth_place: new FormControl(' ', Validators.required),
+    child_name_s: new FormControl('', Validators.required),
+    child_name_e: new FormControl('', Validators.required),
+    child_gender: new FormControl('', Validators.required),
+    child_birth_weight: new FormControl('', Validators.required),
+    child_count: new FormControl('', Validators.required),
+
+    father_id: new FormControl('', Validators.required),
+
+    ip_email: new FormControl('', [Validators.required, Validators.email]),
   });
 
   constructor(private route: ActivatedRoute,

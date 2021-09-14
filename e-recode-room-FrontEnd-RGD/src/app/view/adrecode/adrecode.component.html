@@ -9,74 +9,318 @@
           </div>
           <div class="card-body">
             <form [formGroup]="recodeForm" name="recodeForm">
+
+              <!--              Child's Info-->
               <div class="row">
-                <div class="col-md-5">
+                <div class="col-sm-5 col-md-5">
                   <div class="mb-3">
-                    <label class="form-label">Reseller ID</label>
-                    <input [(ngModel)]="recode.nic"
-                           [ngClass]="{'is-invalid':recodeForm.get('nic').touched && recodeForm.get('nic').invalid}"
-                           class="form-control" formControlName="nic" name="nic" type="text" placeholder="Reseller ID">
+                    <label class="form-label">Child's Birthday</label>
+                    <input [(ngModel)]="recode.child_birthday"
+                           [ngClass]="{'is-invalid':recodeForm.get('child_birthday').touched && recodeForm.get('child_birthday').invalid}"
+                           class="form-control" formControlName="child_birthday" name="child_birthday" type="date"
+                           placeholder="Child's Birthday">
                   </div>
                 </div>
-                <div class="col-sm-6 col-md-7">
+                <!--                <div class="col-sm-6 col-md-7">-->
+                <!--                  <div class="mb-3">-->
+                <!--                    <label class="form-label">Email address</label>-->
+                <!--                    <input [(ngModel)]="recode.ip_email"-->
+                <!--                           [ngClass]="{'is-invalid':recodeForm.get('ip_email').touched && recodeForm.get('ip_email').invalid}"-->
+                <!--                           class="form-control" formControlName="ip_email" name="ip_email" type="email" placeholder="Email">-->
+                <!--                  </div>-->
+                <!--                </div>-->
+                <div class="col-sm-7 col-md-7">
                   <div class="mb-3">
-                    <label class="form-label">Email address</label>
-                    <input [(ngModel)]="recode.email"
-                           [ngClass]="{'is-invalid':recodeForm.get('email').touched && recodeForm.get('email').invalid}"
-                           class="form-control" formControlName="email" name="email" type="email" placeholder="Email">
+                    <label class="form-label">Child's Birth Place</label>
+                    <input [(ngModel)]="recode.child_birth_place"
+                           [ngClass]="{'is-invalid':recodeForm.get('child_birth_place').touched && recodeForm.get('child_birth_place').invalid}"
+                           class="form-control" formControlName="child_birth_place" name="child_birth_place" type="text"
+                           placeholder="Child's Birth Place">
                   </div>
                 </div>
-                <div class="col-sm-6 col-md-6">
+                <div class="col-sm-12 col-md-12">
                   <div class="mb-3">
-                    <label class="form-label">First Name</label>
-                    <input [(ngModel)]="recode.first_name"
-                           [ngClass]="{'is-invalid':recodeForm.get('firstName').touched && recodeForm.get('firstName').invalid}"
-                           class="form-control" formControlName="firstName" name="firstName" type="text" placeholder="First Name">
+                    <label class="form-label">Child's Name Sinhala</label>
+                    <input [(ngModel)]="recode.child_name_s"
+                           [ngClass]="{'is-invalid':recodeForm.get('child_name_s').touched && recodeForm.get('child_name_s').invalid}"
+                           class="form-control" formControlName="child_name_s" name="child_name_s" type="text"
+                           placeholder="Child's Name Sinhala">
                   </div>
                 </div>
-                <div class="col-sm-6 col-md-6">
+                <div class="col-sm-12 col-md-12">
                   <div class="mb-3">
-                    <label class="form-label">Last Name</label>
-                    <input [(ngModel)]="recode.last_name"
-                           [ngClass]="{'is-invalid':recodeForm.get('lastName').touched && recodeForm.get('lastName').invalid}"
-                           class="form-control" formControlName="lastName" name="lastName" type="text" placeholder="Last Name">
+                    <label class="form-label">Child's Name English</label>
+                    <input [(ngModel)]="recode.child_name_e"
+                           [ngClass]="{'is-invalid':recodeForm.get('child_name_e').touched && recodeForm.get('child_name_e').invalid}"
+                           class="form-control" formControlName="child_name_e" name="child_name_e" type="text"
+                           placeholder="Child's Name English">
                   </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-sm-4 col-md-4">
                   <div class="mb-3">
-                    <label class="form-label">Address</label>
-                    <input class="form-control" type="text" placeholder="Home Address">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="mb-3">
-                    <label class="form-label">Telephone</label>
-                    <input class="form-control" type="text" placeholder="Telephone">
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                  <div class="mb-3">
-                    <label class="form-label">City</label>
-                    <input class="form-control" type="text" placeholder="City">
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                  <div class="mb-3">
-                    <label class="form-label">Postal Code</label>
-                    <input class="form-control" type="number" placeholder="ZIP Code">
-                  </div>
-                </div>
-                <div class="col-md-5">
-                  <div class="mb-3">
-                    <label class="form-label">Position</label>
-                    <select class="form-select btn-square">
+                    <label class="form-label">Child's Gender</label>
+                    <select class="form-select btn-square" formControlName="child_gender" name="child_gender"
+                            [(ngModel)]="recode.child_gender"
+                            [ngClass]="{'is-invalid':recodeForm.get('child_gender').touched && recodeForm.get('child_gender').invalid}">
                       <option value="0">--Select--</option>
-                      <option value="1">Reseller</option>
-                      <option value="2">Admin</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
                     </select>
                   </div>
                 </div>
+                <div class="col-sm-4 col-md-4">
+                  <div class="mb-3">
+                    <label class="form-label">Child's Birth Weight</label>
+                    <input [(ngModel)]="recode.child_birth_weight"
+                           [ngClass]="{'is-invalid':recodeForm.get('child_birth_weight').touched && recodeForm.get('child_birth_weight').invalid}"
+                           class="form-control" formControlName="child_birth_weight" name="child_birth_weight"
+                           type="text" placeholder="Child's Birth Weight">
+                  </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <div class="mb-3">
+                    <label class="form-label">No of Child</label>
+                    <input [(ngModel)]="recode.child_count"
+                           [ngClass]="{'is-invalid':recodeForm.get('child_count').touched && recodeForm.get('child_count').invalid}"
+                           class="form-control" formControlName="child_count" name="child_count" type="text"
+                           placeholder="No of Child">
+                  </div>
+                </div>
               </div>
+              <hr>
+
+              <!--              Father's Info-->
+              <div class="row">
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Father's ID</label>
+                    <input [(ngModel)]="recode.father_id"
+                           [ngClass]="{'is-invalid':recodeForm.get('father_id').touched && recodeForm.get('father_id').invalid}"
+                           class="form-control" formControlName="father_id" name="father_id" type="text"
+                           placeholder="Father's ID">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                  <div class="mb-3">
+                    <label class="form-label">Father's Name Sinhala</label>
+                    <input [(ngModel)]="recode.father_name_s"
+                           [ngClass]="{'is-invalid':recodeForm.get('father_name_s').touched && recodeForm.get('father_name_s').invalid}"
+                           class="form-control" formControlName="father_name_s" name="father_name_s" type="text"
+                           placeholder="Father's Name Sinhala">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                  <div class="mb-3">
+                    <label class="form-label">Father's Name English</label>
+                    <input [(ngModel)]="recode.father_name_e"
+                           [ngClass]="{'is-invalid':recodeForm.get('father_name_e').touched && recodeForm.get('father_name_e').invalid}"
+                           class="form-control" formControlName="father_name_e" name="father_name_e" type="text"
+                           placeholder="Father's Name English">
+                  </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <div class="mb-3">
+                    <label class="form-label">Father's Birthday</label>
+                    <input [(ngModel)]="recode.father_birthday"
+                           [ngClass]="{'is-invalid':recodeForm.get('father_birthday').touched && recodeForm.get('father_birthday').invalid}"
+                           class="form-control" formControlName="father_birthday" name="father_birthday" type="date"
+                           placeholder="Father's Birthday">
+                  </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <div class="mb-3">
+                    <label class="form-label">Father's Ethnic Group</label>
+                    <input [(ngModel)]="recode.father_ethnic_group"
+                           [ngClass]="{'is-invalid':recodeForm.get('father_ethnic_group').touched && recodeForm.get('father_ethnic_group').invalid}"
+                           class="form-control" formControlName="father_ethnic_group" name="father_ethnic_group"
+                           type="text"
+                           placeholder="Father's Ethnic Group">
+                  </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <div class="mb-3">
+                    <label class="form-label">Father's Birth Place</label>
+                    <input [(ngModel)]="recode.father_birth_place"
+                           [ngClass]="{'is-invalid':recodeForm.get('father_birth_place').touched && recodeForm.get('father_birth_place').invalid}"
+                           class="form-control" formControlName="father_birth_place" name="father_birth_place"
+                           type="text"
+                           placeholder="Father's Birth Place">
+                  </div>
+                </div>
+              </div>
+              <hr>
+
+              <!--              Mother's Info & PR Info-->
+              <div class="row">
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Mother's ID</label>
+                    <input [(ngModel)]="recode.mother_id"
+                           [ngClass]="{'is-invalid':recodeForm.get('mother_id').touched && recodeForm.get('mother_id').invalid}"
+                           class="form-control" formControlName="mother_id" name="mother_id" type="text"
+                           placeholder="Mother's ID">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                  <div class="mb-3">
+                    <label class="form-label">Mother's Name Sinhala</label>
+                    <input [(ngModel)]="recode.mother_name_s"
+                           [ngClass]="{'is-invalid':recodeForm.get('mother_name_s').touched && recodeForm.get('mother_name_s').invalid}"
+                           class="form-control" formControlName="mother_name_s" name="mother_name_s" type="text"
+                           placeholder="Mother's Name Sinhala">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                  <div class="mb-3">
+                    <label class="form-label">Mother's Name English</label>
+                    <input [(ngModel)]="recode.mother_name_e"
+                           [ngClass]="{'is-invalid':recodeForm.get('mother_name_e').touched && recodeForm.get('mother_name_e').invalid}"
+                           class="form-control" formControlName="mother_name_e" name="mother_name_e" type="text"
+                           placeholder="Mother's Name English">
+                  </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                  <div class="mb-3">
+                    <label class="form-label">Mother's Birthday</label>
+                    <input [(ngModel)]="recode.mother_birthday"
+                           [ngClass]="{'is-invalid':recodeForm.get('mother_birthday').touched && recodeForm.get('mother_birthday').invalid}"
+                           class="form-control" formControlName="mother_birthday" name="mother_birthday" type="date"
+                           placeholder="Mother's Birthday">
+                  </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                  <div class="mb-3">
+                    <label class="form-label">Mother's age at birth of a child</label>
+                    <input [(ngModel)]="recode.mother_age_at_birth_of_a_child"
+                           [ngClass]="{'is-invalid':recodeForm.get('mother_age_at_birth_of_a_child').touched && recodeForm.get('mother_age_at_birth_of_a_child').invalid}"
+                           class="form-control" formControlName="mother_age_at_birth_of_a_child"
+                           name="mother_age_at_birth_of_a_child" type="text"
+                           placeholder="Mother's age">
+                  </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                  <div class="mb-3">
+                    <label class="form-label">Mother's Ethnic Group</label>
+                    <input [(ngModel)]="recode.mother_ethnic_group"
+                           [ngClass]="{'is-invalid':recodeForm.get('mother_ethnic_group').touched && recodeForm.get('mother_ethnic_group').invalid}"
+                           class="form-control" formControlName="mother_ethnic_group" name="mother_ethnic_group"
+                           type="text"
+                           placeholder="Mother's Ethnic Group">
+                  </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                  <div class="mb-3">
+                    <label class="form-label">Mother's Birth Place</label>
+                    <input [(ngModel)]="recode.mother_birth_place"
+                           [ngClass]="{'is-invalid':recodeForm.get('mother_birth_place').touched && recodeForm.get('mother_birth_place').invalid}"
+                           class="form-control" formControlName="mother_birth_place" name="mother_birth_place"
+                           type="text"
+                           placeholder="Mother's Birth Place">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                  <div class="mb-3">
+                    <label class="form-label">Permanent Address</label>
+                    <input [(ngModel)]="recode.permanent_address"
+                           [ngClass]="{'is-invalid':recodeForm.get('permanent_address').touched && recodeForm.get('permanent_address').invalid}"
+                           class="form-control" formControlName="permanent_address" name="permanent_address" type="text"
+                           placeholder="Permanent Address">
+                  </div>
+                </div>
+              </div>
+              <hr>
+
+              <!--              Parents Marriage Info-->
+              <div class="row">
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Parents Married Place</label>
+                    <input [(ngModel)]="recode.married_place"
+                           [ngClass]="{'is-invalid':recodeForm.get('married_place').touched && recodeForm.get('married_place').invalid}"
+                           class="form-control" formControlName="married_place" name="married_place" type="text"
+                           placeholder="Parents Married Place">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Parents Married Date</label>
+                    <input [(ngModel)]="recode.married_date"
+                           [ngClass]="{'is-invalid':recodeForm.get('married_date').touched && recodeForm.get('married_date').invalid}"
+                           class="form-control" formControlName="married_date" name="married_date" type="date"
+                           placeholder="Parents Married Date">
+                  </div>
+                </div>
+              </div>
+              <hr>
+
+              <!--              Grandfather's Info-->
+              <div class="row">
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Grandfather's ID</label>
+                    <input [(ngModel)]="recode.gf_id"
+                           [ngClass]="{'is-invalid':recodeForm.get('gf_id').touched && recodeForm.get('gf_id').invalid}"
+                           class="form-control" formControlName="gf_id" name="gf_id" type="text"
+                           placeholder="Grandfather's ID">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                  <div class="mb-3">
+                    <label class="form-label">Grandfather's Name</label>
+                    <input [(ngModel)]="recode.gf_name"
+                           [ngClass]="{'is-invalid':recodeForm.get('gf_name').touched && recodeForm.get('gf_name').invalid}"
+                           class="form-control" formControlName="gf_name" name="gf_name" type="text"
+                           placeholder="Grandfather's Name">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Grandfather's Birth Year</label>
+                    <input [(ngModel)]="recode.gf_birth_year"
+                           [ngClass]="{'is-invalid':recodeForm.get('gf_birth_year').touched && recodeForm.get('gf_birth_year').invalid}"
+                           class="form-control" formControlName="gf_birth_year" name="gf_birth_year" type="text"
+                           placeholder="Grandfather's Birth Year">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Grandfather's Birth Place</label>
+                    <input [(ngModel)]="recode.gf_birth_place"
+                           [ngClass]="{'is-invalid':recodeForm.get('gf_birth_place').touched && recodeForm.get('gf_birth_place').invalid}"
+                           class="form-control" formControlName="gf_birth_place" name="gf_birth_place" type="text"
+                           placeholder="Grandfather's Birth Place">
+                  </div>
+                </div>
+              </div>
+              <hr>
+
+              <!--              Information Provider-->
+              <div class="row">
+                <div class="col-sm-6 col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Information Provider's ID</label>
+                    <input [(ngModel)]="recode.ip_id"
+                           [ngClass]="{'is-invalid':recodeForm.get('ip_id').touched && recodeForm.get('ip_id').invalid}"
+                           class="form-control" formControlName="ip_id" name="ip_id" type="text"
+                           placeholder="Information Provider's ID">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                  <div class="mb-3">
+                    <label class="form-label">Grandfather's Name</label>
+                    <input [(ngModel)]="recode.gf_name"
+                           [ngClass]="{'is-invalid':recodeForm.get('gf_name').touched && recodeForm.get('gf_name').invalid}"
+                           class="form-control" formControlName="gf_name" name="gf_name" type="text"
+                           placeholder="Grandfather's Name">
+                  </div>
+                </div>
+              </div>
+              <hr>
+
+              <!--              Registrar's Info-->
+              <div class="row">
+              </div>
+
             </form>
           </div>
           <div class="card-footer text-end">
