@@ -1,11 +1,21 @@
 
-export class Recode {
+export class RecordLog {
+
+  // Update Log Info
+  datetime:Date;
+
+  // Certificate Info
+  certificate_id: string;
 
   // Process Info
   ad: string;
   ad_status: string;
   adr: string;
   adr_status: string;
+  client: string;
+  client_status: string;
+  print: string;
+  print_status: string;
 
   // Child's Info
   child_birthday: string;

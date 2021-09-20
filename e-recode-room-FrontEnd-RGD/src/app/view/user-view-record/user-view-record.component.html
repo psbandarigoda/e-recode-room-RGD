@@ -1,0 +1,388 @@
+<!-- page-wrapper Start-->
+<div class="page-wrapper">
+  <!-- Page Header Start-->
+  <div class="page-main-header open">
+    <div class="main-header-left row">
+      <div class="nav-left col p-4">
+        e-Record-Room RGD
+      </div>
+    </div>
+    <div class="main-header-right row">
+      <div class="nav-right col p-6">
+        <ul class="nav-menus">
+          <li>
+            <button class="btn-urv"><a href="/userDashboard"><span class="icon-arrow-left"></span>
+            </a></button>
+            <p class="btn-lable" href="/userDashboard"><a href="/userDashboard">
+              Back
+            </a></p>
+          </li>
+          <li>
+            {{user}}
+          </li>
+          <li>
+            {{user_id}}
+          </li>
+          <li class="onhover-dropdown"><a class="txt-dark" href="#">
+            <h6>EN</h6></a>
+            <ul class="language-dropdown onhover-show-div p-20">
+              <li><a data-lng="en"><i class="flag-icon flag-icon-is"></i> English</a></li>
+              <!--              <li><a href="#" data-lng="es"><i class="flag-icon flag-icon-um"></i> Spanish</a></li>-->
+              <!--              <li><a href="#" data-lng="pt"><i class="flag-icon flag-icon-uy"></i> Portuguese</a></li>-->
+              <!--              <li><a href="#" data-lng="fr"><i class="flag-icon flag-icon-nz"></i> French</a></li>-->
+            </ul>
+          </li>
+          <li class="onhover-dropdown"><i data-feather="bell"></i><span class="dot"></span>
+          <li><a href="#"><i class="right_side_toggle" data-feather="message-circle"></i><span class="dot"></span></a>
+          </li>
+          <li class="onhover-dropdown">
+            <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle"
+                                                       src="assets/images/avtar/avatardefault.png" alt="header-user">
+              <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
+            </div>
+            <ul class="profile-dropdown onhover-show-div p-20">
+              <li><a href="/userDashboard"><i data-feather="user"></i> Profile</a></li>
+              <li><a href="#"><i data-feather="mail"></i> Inbox</a></li>
+              <li (click)="logout()"><a href="#"><i data-feather="log-out"></i> Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
+      </div>
+      <script id="result-template" type="text/x-handlebars-template">
+        <div class="ProfileCard u-cf">
+          <div class="ProfileCard-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-airplay m-0">
+              <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
+              <polygon points="12 15 17 21 7 21 12 15"></polygon>
+            </svg>
+          </div>
+          <div class="ProfileCard-details">
+            <div class="ProfileCard-realName"></div>
+          </div>
+        </div>
+      </script>
+    </div>
+  </div>
+  <!-- Page Header Ends-->
+  <!-- Page Body Start-->
+  <div class="page-body-wrapper">
+    <div class="page-body">
+      <div class="container-fluid">
+        <div class="page-header">
+          <div class="row">
+            <div class="col">
+              <div class="page-header-left">
+                <h3>User Dashboard</h3>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                  <li class="breadcrumb-item">Process Complete</li>
+                  <li class="breadcrumb-item active"> View Certificate</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container-fluid starts-->
+      <div class="container-fluid">
+        <div class="edit-profile">
+          <div class="row">
+            <div class="col-xl-12">
+              <form class="card">
+                <div class="card-header">
+                  <h4 class="card-title mb-0">View Certificate</h4>
+                </div>
+                <div class="card-body">
+
+                  <!--              Certificate Info-->
+                  <div class="row">
+                    <div class="col-sm-5 col-md-5">
+                      <div class="mb-3">
+                        <label class="form-label">Certificate Number:- </label>
+                        {{record.certificate_id}}
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <!--              Child's Info-->
+                  <div class="row">
+                    <div class="col-sm-5 col-md-5">
+                      <div class="mb-3">
+                        <label class="form-label">Child's Birthday:- </label>
+                        {{record.child_birthday}}
+                      </div>
+                    </div>
+                    <div class="col-sm-7 col-md-7">
+                      <div class="mb-3">
+                        <label class="form-label">Child's Birth Place:- </label>
+                        {{record.child_birth_place}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Child's Name Sinhala:- </label>
+                        {{record.child_name_s}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Child's Name English:- </label>
+                        {{record.child_name_e}}
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Child's Gender:- </label>
+                        {{record.child_gender}}
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Child's Birth Weight:- </label>
+                        {{record.child_birth_weight}}
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">No of Child:- </label>
+                        {{record.child_count}}
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <!--              Father's Info-->
+                  <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Father's ID:- </label>
+                        {{record.father_id}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Father's Name Sinhala:- </label>
+                        {{record.father_name_s}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Father's Name English:- </label>
+                        {{record.father_name_e}}
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Father's Birthday:- </label>
+                        {{record.father_birthday}}
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Father's Ethnic Group:- </label>
+                        {{record.father_ethnic_group}}
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Father's Birth Place:- </label>
+                        {{record.father_birth_place}}
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <!--              Mother's Info & PR Info-->
+                  <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Mother's ID:- </label>
+                        {{record.mother_id}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Mother's Name Sinhala:- </label>
+                        {{record.mother_name_s}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Mother's Name English:- </label>
+                        {{record.mother_name_e}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Mother's Birthday:- </label>
+                        {{record.mother_birthday}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Mother's age at birth of a child:- </label>
+                        {{record.mother_age_at_birth_of_a_child}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Mother's Ethnic Group:- </label>
+                        {{record.mother_ethnic_group}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Mother's Birth Place:- </label>
+                        {{record.mother_birth_place}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Permanent Address:- </label>
+                        {{record.permanent_address}}
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <!--              Parents Marriage Info-->
+                  <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Parents Married Place:- </label>
+                        {{record.married_place}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Parents Married Date:- </label>
+                        {{record.married_date}}
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <!--              Grandfather's Info-->
+                  <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Grandfather's ID:- </label>
+                        {{record.gf_id}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Grandfather's Name:- </label>
+                        {{record.gf_name}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Grandfather's Birth Year:- </label>
+                        {{record.gf_birth_year}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Grandfather's Birth Place:- </label>
+                        {{record.gf_birth_place}}
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <!--              Information Provider-->
+                  <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Information Provider's ID:- </label>
+                        {{record.ip_id}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Information Provider's Name:- </label>
+                        {{record.ip_name}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Information Provider's Address:- </label>
+                        {{record.ip_address}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Information Provider's Contact:- </label>
+                        {{record.ip_phone}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Information Provider's Email:- </label>
+                        {{record.ip_email}}
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Information Provided Date:- </label>
+                        {{record.ip_date}}
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <!--              Registrar's Info-->
+                  <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Registrar's ID:- </label>
+                        {{record.reg_id}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Registrar's Name:- </label>
+                        {{record.reg_name}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Registrar's Address:- </label>
+                        {{record.reg_address}}
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="card-footer text-end btn-showcase">
+                  <button class="btn btn-outline-danger" type="submit" (click)="rejectRequest()">Reject</button>
+                  <button class="btn btn-success" type="submit" (click)="confirmRecode()">Confirm</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer start-->
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 footer-copyright">
+            <p class="mb-0">Copyright 2021 © nZO All rights reserved.</p>
+          </div>
+          <div class="col-md-6">
+            <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-cc"></i></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+

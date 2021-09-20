@@ -56,10 +56,11 @@ export class LoginComponent implements OnInit {
         this.loginValueIf = false;
         this.user = result;
         sessionStorage.setItem('loggedUser', this.user.first_name);
+        sessionStorage.setItem('loggedUser_nic', this.user.nic);
         console.log(this.user);
         if (this.user.position === 'ADMIN') {
           this.router.navigate([this.URL_RETURN_ADMIN]);
-        } else if (this.user.position === 'AD') {
+        } else if (this.user.position === 'DA') {
           this.router.navigate([this.URL_RETURN_AD]);
         } else if (this.user.position === 'ADR') {
           this.router.navigate([this.URL_RETURN_ADR]);

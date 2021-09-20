@@ -1,0 +1,15 @@
+.error-msg{
+  color: red;
+  text-align: center;
+  font-size: medium;
+  background-color: #afc0cb;
+  text-transform:uppercase;
+}
+
+.info-msg{
+  color: green;
+  text-align: center;
+  font-size: medium;
+  background-color: #afc0cb;
+  text-transform:uppercase;
+}

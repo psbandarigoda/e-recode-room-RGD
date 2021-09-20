@@ -1,9 +1,9 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
-import {Recode} from "../model/Recode";
+import {Record} from "../model/Record";
 
-const URL = '/recode';
+const URL = '/record';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,28 @@ export class RecodeManagementService {
   constructor(private http: HttpClient) {
   }
 
-  getRecode() {
-    return this.http.get<Recode>(environment.backend_url + URL + '/get/recode');
+  getRecode(record: string) {
+    return this.http.get<Record>(environment.backend_url + URL + '/get/record/'+record);
   }
 
-  addRecode(recode: Recode) {
-    return this.http.post<Recode>(environment.backend_url + URL + '/add/recode', recode);
+  getRecodeByUser(user: string) {
+    return this.http.get<Array<Record>>(environment.backend_url + URL + '/get/records/'+user);
+  }
+
+  addRecode(recode: Record) {
+    return this.http.post<Record>(environment.backend_url + URL + '/add/record', recode);
+  }
+
+  updateRecode(recode_id: string, recode: Record){
+    return this.http.post<Record>(environment.backend_url + URL + '/update/record/'+recode_id, recode);
+  }
+
+  confirmRecode(recode_id: string, recode: Record){
+    return this.http.post<Record>(environment.backend_url + URL + '/confirm/record/'+recode_id, recode);
+  }
+
+  printRecode(recode_id: string, recode: Record){
+    console.log('service');
+    return this.http.post<Record>(environment.backend_url + URL + '/print/record/'+recode_id, recode);
   }
 }

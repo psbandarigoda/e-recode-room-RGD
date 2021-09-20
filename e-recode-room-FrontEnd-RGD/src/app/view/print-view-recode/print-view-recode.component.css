@@ -1,0 +1,7 @@
+.error-msg{
+  color: red;
+  text-align: center;
+  font-size: medium;
+  background-color: #afc0cb;
+  text-transform:uppercase;
+}

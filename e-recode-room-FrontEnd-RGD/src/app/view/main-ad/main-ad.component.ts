@@ -27,28 +27,23 @@ export class MainADComponent implements OnInit {
 
   setHeaderTextAndButtons() {
 
-    if (this.router.url === '/main-ad/dashboard') {
-      this.headerText = 'Dashboard';
-      this.state = 'Dashboard';
-    } else if (this.router.url === '/main-ad/ad-recode') {
+    if (this.router.url === '/main-ad/ad-recode') {
       this.headerText = 'Add';
       this.state = 'Add';
-      this.job = 'Add Recode';
-    } else if (this.router.url === '/main-ad/view-ad') {
+      this.job = 'Add Record';
+    } else if (this.router.url === '/main-ad/ad-view-recode') {
       this.headerText = 'View';
       this.state = 'View';
-      this.job = 'View Recode';
+      this.job = 'View Record';
     }
   }
 
   changeRoute(button) {
     console.log(button);
-    if (button === 'Dashboard') {
-      this.router.navigate(['/main-ad/dashboard']);
-    } else if (button === 'Add') {
+    if (button === 'Add') {
       this.router.navigate(['/main-ad/ad-recode']);
     } else if (button === 'View') {
-      this.router.navigate(['/main-ad/view-ad']);
+      this.router.navigate(['/main-ad/ad-view-recode']);
     }
   }
 

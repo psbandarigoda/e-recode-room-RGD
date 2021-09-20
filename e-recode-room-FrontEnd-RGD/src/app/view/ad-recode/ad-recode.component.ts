@@ -1,26 +1,69 @@
 import { Component, OnInit } from '@angular/core';
-import {Search} from "../../model/Search";
-import {Record} from "../../model/Record";
-import {RecordLog} from "../../model/RecordLog";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Record} from "../../model/Record";
 import {ActivatedRoute, Router} from "@angular/router";
-import {RecodeLogService} from "../../service/RecodeLogService";
+import {UserManagementService} from "../../service/UserManagementService";
 import {RecodeManagementService} from "../../service/RecodeManagementService";
+import {RecodeLogService} from "../../service/RecodeLogService";
+import {RecordLog} from "../../model/RecordLog";
 
 @Component({
-  selector: 'app-print-recode',
-  templateUrl: './print-recode.component.html',
-  styleUrls: ['./print-recode.component.css']
+  selector: 'app-adrecode',
+  templateUrl: './ad-recode.component.html',
+  styleUrls: ['./ad-recode.component.css']
 })
-export class PrintRecodeComponent implements OnInit {
+export class AdRecodeComponent implements OnInit {
 
-  search: Search = new Search();
   record: Record = new Record();
   recordLog: RecordLog = new RecordLog();
   date: Date = new Date();
 
-  searchForm = new FormGroup({
-    search_val: new FormControl('', Validators.required),
+  recodeForm = new FormGroup({
+    certificate_id: new FormControl('', Validators.required),
+
+    child_birthday: new FormControl('', Validators.required),
+    child_birth_place: new FormControl(' ', Validators.required),
+    child_name_s: new FormControl('', Validators.required),
+    child_name_e: new FormControl('', Validators.required),
+    child_gender: new FormControl('', Validators.required),
+    child_birth_weight: new FormControl('', Validators.required),
+    child_count: new FormControl('', Validators.required),
+
+    father_id: new FormControl('', Validators.required),
+    father_name_s: new FormControl('', Validators.required),
+    father_name_e: new FormControl('', Validators.required),
+    father_birthday: new FormControl('', Validators.required),
+    father_ethnic_group: new FormControl('', Validators.required),
+    father_birth_place: new FormControl('', Validators.required),
+
+    mother_id: new FormControl('', Validators.required),
+    mother_name_s: new FormControl('', Validators.required),
+    mother_name_e: new FormControl('', Validators.required),
+    mother_birthday: new FormControl('', Validators.required),
+    mother_age_at_birth_of_a_child: new FormControl('', Validators.required),
+    mother_ethnic_group: new FormControl('', Validators.required),
+    mother_birth_place: new FormControl('', Validators.required),
+
+    permanent_address: new FormControl('', Validators.required),
+
+    married_place: new FormControl('', Validators.required),
+    married_date: new FormControl('', Validators.required),
+
+    gf_id: new FormControl('', Validators.required),
+    gf_name: new FormControl('', Validators.required),
+    gf_birth_year: new FormControl('', Validators.required),
+    gf_birth_place: new FormControl('', Validators.required),
+
+    ip_id: new FormControl('', Validators.required),
+    ip_name: new FormControl('', Validators.required),
+    ip_address: new FormControl('', Validators.required),
+    ip_phone: new FormControl('', Validators.required),
+    ip_email: new FormControl('', [Validators.required, Validators.email]),
+    ip_date: new FormControl('', Validators.required),
+
+    reg_id: new FormControl('', Validators.required),
+    reg_name: new FormControl('', Validators.required),
+    reg_address: new FormControl('', Validators.required),
   });
 
   constructor(private route: ActivatedRoute,
@@ -32,27 +75,17 @@ export class PrintRecodeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchRecord(){
-    console.log(this.search.certificate_id)
-    this.recodeManagementService.getRecode(this.search.certificate_id).subscribe((result) => {
+  addRecode() {
+    this.record.ad = sessionStorage.getItem('loggedUser_nic');
+    this.record.ad_status = 'done';
+    this.record.adr_status = 'processing';
+    this.record.print_status = 'pending';
+    this.recodeManagementService.addRecode(this.record).subscribe((result) => {
       if (result != null) {
-        alert('Record Found');
-        this.record = result;
-        console.log('certificate_id details available'+result);
-      }
-    });
-  }
-
-  printRecord(){
-    this.record.print = sessionStorage.getItem('loggedUser_nic');
-    this.record.print_status = 'done';
-    console.log('method');
-    this.recodeManagementService.printRecode(this.search.certificate_id, this.record).subscribe((result) => {
-      if (result != null) {
-        alert('Successfully Printed Record');
+        alert('Record Added Successfully');
         this.addRecordLog();
         this.record = new Record();
-        this.searchForm.reset();
+        this.recodeForm.reset();
       }
     });
   }

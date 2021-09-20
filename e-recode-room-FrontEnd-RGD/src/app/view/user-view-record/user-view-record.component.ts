@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import {Search} from "../../model/Search";
 import {Record} from "../../model/Record";
-import {RecordLog} from "../../model/RecordLog";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {RecodeLogService} from "../../service/RecodeLogService";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {RecodeManagementService} from "../../service/RecodeManagementService";
+import {Search} from "../../model/Search";
+import {RecordLog} from "../../model/RecordLog";
+import {RecodeLogService} from "../../service/RecodeLogService";
 
 @Component({
-  selector: 'app-print-recode',
-  templateUrl: './print-recode.component.html',
-  styleUrls: ['./print-recode.component.css']
+  selector: 'app-adrcheck-recode',
+  templateUrl: './user-view-record.component.html',
+  styleUrls: ['./user-view-record.component.css']
 })
-export class PrintRecodeComponent implements OnInit {
+export class UserViewRecordComponent implements OnInit {
 
   search: Search = new Search();
   record: Record = new Record();
   recordLog: RecordLog = new RecordLog();
   date: Date = new Date();
+  certificate_id: string;
+  user: string;
+  user_id: string;
+  URL_RETURN_USER_DASHBOARD: string;
 
   searchForm = new FormGroup({
     search_val: new FormControl('', Validators.required),
@@ -30,29 +34,50 @@ export class PrintRecodeComponent implements OnInit {
               private recodeManagementService: RecodeManagementService) { }
 
   ngOnInit(): void {
+    this.user = sessionStorage.getItem('loggedUser');
+    this.user_id = sessionStorage.getItem('loggedUser_nic');
+    this.certificate_id = this.route.snapshot.paramMap.get('certificate_id');
+    this.URL_RETURN_USER_DASHBOARD = this.route.snapshot.queryParams.URL_RETURN_USER_DASHBOARD || 'userDashboard';
+    this.searchRecord();
+  }
+
+  logout(){
+    localStorage.clear();
   }
 
   searchRecord(){
-    console.log(this.search.certificate_id)
-    this.recodeManagementService.getRecode(this.search.certificate_id).subscribe((result) => {
+    console.log(this.certificate_id)
+    this.recodeManagementService.getRecode(this.certificate_id).subscribe((result) => {
       if (result != null) {
-        alert('Record Found');
+        // alert('Record Found');
         this.record = result;
         console.log('certificate_id details available'+result);
       }
     });
   }
 
-  printRecord(){
-    this.record.print = sessionStorage.getItem('loggedUser_nic');
-    this.record.print_status = 'done';
-    console.log('method');
-    this.recodeManagementService.printRecode(this.search.certificate_id, this.record).subscribe((result) => {
+  rejectRequest(){
+    this.record.client_status = 'rejected';
+    this.record.adr_status = 'processing';
+    this.record.print_status = 'pending';
+    this.recodeManagementService.confirmRecode(this.certificate_id, this.record).subscribe((result) => {
       if (result != null) {
-        alert('Successfully Printed Record');
+        alert('Rejected Record');
         this.addRecordLog();
         this.record = new Record();
-        this.searchForm.reset();
+        this.router.navigate([this.URL_RETURN_USER_DASHBOARD]);
+      }
+    });
+  }
+
+  confirmRecode(){
+    this.record.client_status = 'confirm';
+    this.recodeManagementService.confirmRecode(this.certificate_id, this.record).subscribe((result) => {
+      if (result != null) {
+        alert('Successfully Confirm Record');
+        this.addRecordLog();
+        this.record = new Record();
+        this.router.navigate([this.URL_RETURN_USER_DASHBOARD]);
       }
     });
   }

@@ -1,0 +1,112 @@
+<!-- Container-fluid Start-->
+<div class="container-fluid search-page">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title mb-0">Filter Record</h4>
+        </div>
+        <div class="card-body">
+
+          <form [formGroup]="searchForm" name="searchForm">
+            <div class="row">
+              <div class="col-sm-3">
+                <input class="form-control" formControlName="start_date" name="start_date" type="date"
+                       placeholder="Start Date"
+                       [(ngModel)]="search.start_date"
+                       [ngClass]="{'is-invalid':searchForm.get('start_date').touched && searchForm.get('start_date').invalid}">
+              </div>
+              <div class="col-sm-3">
+                <input class="form-control" formControlName="end_date" name="end_date" type="date"
+                       placeholder="End Date"
+                       [(ngModel)]="search.end_date"
+                       [ngClass]="{'is-invalid':searchForm.get('end_date').touched && searchForm.get('end_date').invalid}">
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-pill btn-outline-info" type="submit" (click)="filterByDateRange()"><span
+                  class="icon-search"></span></button>
+              </div>
+              <div class="col-sm-3">
+                <input class="form-control" formControlName="search_val" name="search_val" type="text"
+                       placeholder="search by certificate no ..."
+                       [(ngModel)]="search.certificate_id"
+                       [ngClass]="{'is-invalid':searchForm.get('search_val').touched && searchForm.get('search_val').invalid}">
+              </div>
+              <div class="col-sm-1">
+                <button class="btn btn-pill btn-outline-info" type="submit" (click)="filterByCertificateId()"><span
+                  class="icon-search"></span></button>
+              </div>
+            </div>
+          </form>
+
+          <!--          <form class="search-form">-->
+          <!--            <div class="form-group1 m-0">-->
+
+          <!--            </div>-->
+          <!--          </form>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends-->
+
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+  <div class="edit-profile">
+    <div class="row">
+      <div class="col-xl-12">
+        <form class="card">
+          <div class="card-header">
+            <h4 class="card-title mb-0">View Record</h4>
+          </div>
+          <div class="card-body" *ngIf="filter_record_available == false">
+            <p *ngIf="filter_record_available == false" class="error-msg"> No Record Found ! </p>
+          </div>
+
+          <div class="card-body" *ngIf="filter_record_available == true">
+
+            <!--              History Info Head-->
+            <div class="row">
+              <div class="col-sm-1 col-md-1">ID</div>
+              <div class="col-sm-1 col-md-1">Status</div>
+              <div class="col-sm-4 col-md-4">Child Name</div>
+              <div class="col-sm-2 col-md-2">IP ID</div>
+              <div class="col-sm-4 col-md-4">IP Email</div>
+            </div>
+            <hr>
+
+            <!--              History Info-->
+            <div class="row" *ngFor="let res of record">
+              <div class="col-sm-1 col-md-1">{{res.certificate_id}}</div>
+              <div class="col-sm-1 col-md-1">{{res.adr_status}}</div>
+              <div class="col-sm-4 col-md-4">{{res.child_name_e}}</div>
+              <div class="col-sm-2 col-md-2">{{res.ip_id}}</div>
+              <div class="col-sm-4 col-md-4">{{res.ip_email}}</div>
+            </div>
+            <hr>
+
+          </div>
+          <div class="card-footer text-end">
+            <button class="btn btn-primary" type="submit" (click)="filterRest()">Filter Rest <span
+              class="icon-reload"></span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- footer start-->
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 footer-copyright">
+            <p class="mb-0">Copyright 2021 © nZO All rights reserved.</p>
+          </div>
+          <div class="col-md-6">
+            <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

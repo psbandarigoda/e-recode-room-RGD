@@ -10,13 +10,18 @@ import {DatePipe} from '@angular/common';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { LoginComponent } from './view/login/login.component';
 import { UserDashboardComponent } from './view/user-dashboard/user-dashboard.component';
-import {ADRecodeComponent} from './view/adrecode/adrecode.component';
-import { ADRCheckRecodeComponent } from './view/adrcheck-recode/adrcheck-recode.component';
+import {AdRecodeComponent} from './view/ad-recode/ad-recode.component';
+import { AdrCheckRecodeComponent } from './view/adr-check-recode/adr-check-recode.component';
 import { PrintRecodeComponent } from './view/print-recode/print-recode.component';
 import { UserManagementComponent } from './view/user-management/user-management.component';
 import { MainADComponent } from './view/main-ad/main-ad.component';
 import { MainADRComponent } from './view/main-adr/main-adr.component';
 import { MainPrintComponent } from './view/main-print/main-print.component';
+import {AdrEditRecodeComponent} from "./view/adr-edit-recode/adr-edit-recode.component";
+import {AdrViewRecodeComponent} from "./view/adr-view-recode/adr-view-recode.component";
+import {AdViewRecodeComponent} from "./view/ad-view-recode/ad-view-recode.component";
+import {PrintViewRecodeComponent} from "./view/print-view-recode/print-view-recode.component";
+import {UserViewRecordComponent} from "./view/user-view-record/user-view-record.component";
 
 
 
@@ -29,10 +34,15 @@ import { MainPrintComponent } from './view/main-print/main-print.component';
     LoginComponent,
     DashboardComponent,
     UserDashboardComponent,
-    ADRecodeComponent,
-    ADRCheckRecodeComponent,
+    AdRecodeComponent,
+    AdViewRecodeComponent,
+    AdrCheckRecodeComponent,
+    AdrEditRecodeComponent,
+    AdrViewRecodeComponent,
     PrintRecodeComponent,
+    PrintViewRecodeComponent,
     UserManagementComponent,
+    UserViewRecordComponent,
     MainADComponent,
     MainADRComponent,
     MainPrintComponent

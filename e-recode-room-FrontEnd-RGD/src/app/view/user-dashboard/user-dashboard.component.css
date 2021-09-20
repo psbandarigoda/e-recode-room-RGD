@@ -1,0 +1,28 @@
+.pulsate {
+  -webkit-animation: color_change 1s infinite alternate;
+  -moz-animation: color_change 1s infinite alternate;
+  -ms-animation: color_change 1s infinite alternate;
+  -o-animation: color_change 1s infinite alternate;
+  animation: color_change 1s infinite alternate;
+}
+
+@-webkit-keyframes color_change {
+  from { color: blue; }
+  to { color: green; }
+}
+@-moz-keyframes color_change {
+  from { color: blue; }
+  to { color: green; }
+}
+@-ms-keyframes color_change {
+  from { color: blue; }
+  to { color: green; }
+}
+@-o-keyframes color_change {
+  from { color: blue; }
+  to { color: green; }
+}
+@keyframes color_change {
+  from { color: blue; }
+  to { color: green; }
+}

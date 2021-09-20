@@ -25,28 +25,23 @@ export class MainPrintComponent implements OnInit {
 
   setHeaderTextAndButtons() {
 
-    if (this.router.url === '/main-print/dashboard') {
-      this.headerText = 'Dashboard';
-      this.state = 'Dashboard';
-    } else if (this.router.url === '/main-print/print-recode') {
-      this.headerText = 'Users';
-      this.state = 'Users';
-      this.job = 'User Management';
-    } else if (this.router.url === '/main-print/view-print') {
+    if (this.router.url === '/main-print/print-recode') {
       this.headerText = 'Print';
       this.state = 'Print';
-      this.job = 'Process Completing';
+      this.job = 'Print Certificate';
+    } else if (this.router.url === '/main-print/print-view-recode') {
+      this.headerText = 'Print';
+      this.state = 'Print';
+      this.job = 'View Printed Record';
     }
   }
 
   changeRoute(button) {
     console.log(button);
-    if (button === 'Dashboard') {
-      this.router.navigate(['/main-print/dashboard']);
-    } else if (button === 'Users') {
+    if (button === 'Print') {
       this.router.navigate(['/main-print/print-recode']);
-    } else if (button === 'Print') {
-      this.router.navigate(['/main-print/view-print']);
+    } else if (button === 'View') {
+      this.router.navigate(['/main-print/print-view-recode']);
     }
   }
 

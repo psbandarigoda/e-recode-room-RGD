@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {Search} from "../../model/Search";
 import {Record} from "../../model/Record";
-import {RecordLog} from "../../model/RecordLog";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {RecodeLogService} from "../../service/RecodeLogService";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {RecodeManagementService} from "../../service/RecodeManagementService";
+import {Search} from "../../model/Search";
+import {RecordLog} from "../../model/RecordLog";
+import {RecodeLogService} from "../../service/RecodeLogService";
 
 @Component({
-  selector: 'app-print-recode',
-  templateUrl: './print-recode.component.html',
-  styleUrls: ['./print-recode.component.css']
+  selector: 'app-adrcheck-recode',
+  templateUrl: './adr-check-recode.component.html',
+  styleUrls: ['./adr-check-recode.component.css']
 })
-export class PrintRecodeComponent implements OnInit {
+export class AdrCheckRecodeComponent implements OnInit {
 
   search: Search = new Search();
   record: Record = new Record();
   recordLog: RecordLog = new RecordLog();
   date: Date = new Date();
+  URL_RETURN_ADR_EDIT_RECORD: string;
 
   searchForm = new FormGroup({
     search_val: new FormControl('', Validators.required),
@@ -30,6 +31,7 @@ export class PrintRecodeComponent implements OnInit {
               private recodeManagementService: RecodeManagementService) { }
 
   ngOnInit(): void {
+    this.URL_RETURN_ADR_EDIT_RECORD = this.route.snapshot.queryParams.URL_RETURN_ADR_EDIT_RECORD || 'main-adr/adr-edit-recode';
   }
 
   searchRecord(){
@@ -43,13 +45,17 @@ export class PrintRecodeComponent implements OnInit {
     });
   }
 
-  printRecord(){
-    this.record.print = sessionStorage.getItem('loggedUser_nic');
-    this.record.print_status = 'done';
-    console.log('method');
-    this.recodeManagementService.printRecode(this.search.certificate_id, this.record).subscribe((result) => {
+  editRequest(){
+    this.router.navigate([this.URL_RETURN_ADR_EDIT_RECORD, {certificate_id: this.search.certificate_id }]);
+  }
+
+  confirmRecode(){
+    this.record.adr = sessionStorage.getItem('loggedUser_nic');
+    this.record.adr_status = 'confirm';
+    this.record.print_status = 'processing';
+    this.recodeManagementService.confirmRecode(this.search.certificate_id, this.record).subscribe((result) => {
       if (result != null) {
-        alert('Successfully Printed Record');
+        alert('Successfully Confirm Record');
         this.addRecordLog();
         this.record = new Record();
         this.searchForm.reset();

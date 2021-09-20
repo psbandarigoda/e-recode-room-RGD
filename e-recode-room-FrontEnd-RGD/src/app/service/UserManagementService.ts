@@ -12,13 +12,10 @@ export class UserManagementService {
   constructor(private http: HttpClient) {
   }
 
-  // tslint:disable-next-line:typedef
   login(nic: string, password: string) {
-    // @ts-ignore
     return this.http.get<Users>(environment.backend_url + URL + '/login' + '/' + nic + '/' + password);
   }
 
-  // tslint:disable-next-line:typedef
   register(user: Users) {
     return this.http.post<Users>(environment.backend_url + URL + '/register', user);
   }
