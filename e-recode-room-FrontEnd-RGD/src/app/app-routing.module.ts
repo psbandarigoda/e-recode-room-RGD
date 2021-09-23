@@ -2,12 +2,12 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './view/login/login.component';
 import {MainComponent} from './view/main/main.component';
-import {DashboardComponent} from './view/dashboard/dashboard.component';
+import {AdminDashboardComponent} from './view/admin-dashboard/admin-dashboard.component';
 import {UserDashboardComponent} from './view/user-dashboard/user-dashboard.component';
 import {AdRecodeComponent} from './view/ad-recode/ad-recode.component';
 import {AdrCheckRecodeComponent} from './view/adr-check-recode/adr-check-recode.component';
 import {PrintRecodeComponent} from './view/print-recode/print-recode.component';
-import {UserManagementComponent} from './view/user-management/user-management.component';
+import {AdminUserManagementComponent} from './view/admin-user-management/admin-user-management.component';
 import {MainADComponent} from './view/main-ad/main-ad.component';
 import {MainADRComponent} from './view/main-adr/main-adr.component';
 import {MainPrintComponent} from './view/main-print/main-print.component';
@@ -29,11 +29,11 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: AdminDashboardComponent
       },
       {
         path: 'user-management',
-        component: UserManagementComponent
+        component: AdminUserManagementComponent
       }
     ]
   },

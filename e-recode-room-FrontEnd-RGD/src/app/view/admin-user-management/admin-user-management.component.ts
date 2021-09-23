@@ -6,10 +6,10 @@ import {Users} from '../../model/Users';
 
 @Component({
   selector: 'app-user-management',
-  templateUrl: './user-management.component.html',
-  styleUrls: ['./user-management.component.css']
+  templateUrl: './admin-user-management.component.html',
+  styleUrls: ['./admin-user-management.component.css']
 })
-export class UserManagementComponent implements OnInit {
+export class AdminUserManagementComponent implements OnInit {
 
   userForm: FormGroup;
   userRegisterIf = true;

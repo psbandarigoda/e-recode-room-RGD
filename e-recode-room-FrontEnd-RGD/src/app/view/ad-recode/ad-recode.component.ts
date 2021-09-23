@@ -6,6 +6,8 @@ import {UserManagementService} from "../../service/UserManagementService";
 import {RecodeManagementService} from "../../service/RecodeManagementService";
 import {RecodeLogService} from "../../service/RecodeLogService";
 import {RecordLog} from "../../model/RecordLog";
+import {Users} from "../../model/Users";
+import {SMSService} from "../../service/SMSService";
 
 @Component({
   selector: 'app-adrecode',
@@ -69,7 +71,9 @@ export class AdRecodeComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private formBuilder: FormBuilder,
               private router: Router,
+              private smsService: SMSService,
               private recodeLogService: RecodeLogService,
+              private userManagementSVR: UserManagementService,
               private recodeManagementService: RecodeManagementService) { }
 
   ngOnInit(): void {
@@ -84,6 +88,7 @@ export class AdRecodeComponent implements OnInit {
       if (result != null) {
         alert('Record Added Successfully');
         this.addRecordLog();
+        this.register();
         this.record = new Record();
         this.recodeForm.reset();
       }
@@ -164,6 +169,42 @@ export class AdRecodeComponent implements OnInit {
         alert('Data Logged');
       }
     });
+  }
+
+  register() {
+    let phone_number = this.record.ip_phone.toString();
+    let certificate_id = this.record.certificate_id.toString();
+
+    const user = new Users();
+    user.nic = this.record.ip_id;
+    user.email = this.record.ip_email;
+    user.first_name = this.record.ip_name;
+    user.last_name = '';
+    user.tel =  Number(this.record.ip_phone);
+    user.position = 'USER';
+    user.password = this.record.ip_id.substr(0,3)+'@'+this.record.ip_name.substr(0,3);
+    console.log('password'+user.password);
+
+    if (user != null){
+      this.userManagementSVR.register(user).subscribe((result) => {
+        if (result == null) {
+          console.log('user register error', result);
+        } else {
+          console.log("phone sms: "+phone_number);
+          // let message = certificate_id+'-----'+' This'+'-----'+'Certificate'+'-----'+'Request'+'-----'+'is'+'-----'+'Processing'+'-----'+'...';
+          let message = 'This_Certificate_Request_is_Processing';
+          this.smsService.sendSMS(phone_number,message.toString()).subscribe((sms) => {
+            if (sms == '0'){
+              console.log('SMS send success', sms);
+            } else {
+              console.log('SMS send error', sms);
+            }
+          });
+          console.log('user register success', result);
+        }
+      });
+    }
+
   }
 
 }

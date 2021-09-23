@@ -7,13 +7,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
-import { DashboardComponent } from './view/dashboard/dashboard.component';
+import { AdminDashboardComponent } from './view/admin-dashboard/admin-dashboard.component';
 import { LoginComponent } from './view/login/login.component';
 import { UserDashboardComponent } from './view/user-dashboard/user-dashboard.component';
 import {AdRecodeComponent} from './view/ad-recode/ad-recode.component';
 import { AdrCheckRecodeComponent } from './view/adr-check-recode/adr-check-recode.component';
 import { PrintRecodeComponent } from './view/print-recode/print-recode.component';
-import { UserManagementComponent } from './view/user-management/user-management.component';
+import { AdminUserManagementComponent } from './view/admin-user-management/admin-user-management.component';
 import { MainADComponent } from './view/main-ad/main-ad.component';
 import { MainADRComponent } from './view/main-adr/main-adr.component';
 import { MainPrintComponent } from './view/main-print/main-print.component';
@@ -32,7 +32,7 @@ import {UserViewRecordComponent} from "./view/user-view-record/user-view-record.
     AppComponent,
     MainComponent,
     LoginComponent,
-    DashboardComponent,
+    AdminDashboardComponent,
     UserDashboardComponent,
     AdRecodeComponent,
     AdViewRecodeComponent,
@@ -41,7 +41,7 @@ import {UserViewRecordComponent} from "./view/user-view-record/user-view-record.
     AdrViewRecodeComponent,
     PrintRecodeComponent,
     PrintViewRecodeComponent,
-    UserManagementComponent,
+    AdminUserManagementComponent,
     UserViewRecordComponent,
     MainADComponent,
     MainADRComponent,
