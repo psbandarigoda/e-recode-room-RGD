@@ -174,6 +174,7 @@ export class AdRecodeComponent implements OnInit {
   register() {
     let phone_number = this.record.ip_phone.toString();
     let certificate_id = this.record.certificate_id.toString();
+    let nic = this.record.ip_id.toString();
 
     const user = new Users();
     user.nic = this.record.ip_id;
@@ -183,16 +184,14 @@ export class AdRecodeComponent implements OnInit {
     user.tel =  Number(this.record.ip_phone);
     user.position = 'USER';
     user.password = this.record.ip_id.substr(0,3)+'@'+this.record.ip_name.substr(0,3);
-    console.log('password'+user.password);
 
     if (user != null){
       this.userManagementSVR.register(user).subscribe((result) => {
         if (result == null) {
           console.log('user register error', result);
         } else {
-          console.log("phone sms: "+phone_number);
-          console.log("certificate_id: "+certificate_id);
-          let message = "Your+Certificate+"+certificate_id+"+\n+accepted+for+PROCESSING.";
+          let message = "Your+Certificate+"+certificate_id+"+\n+accepted+for+PROCESSING.+\n+Monitoring+System+Login+\n+Username:-+"+nic+"+\n+Password:-+"+user.password+" ";
+          console.log("message: "+message);
           this.smsService.sendSMS(phone_number,message.toString()).subscribe((sms) => {
             if (sms == '0'){
               console.log('SMS send success', sms);
