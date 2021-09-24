@@ -22,9 +22,10 @@ public class SMSController {
 
 //        String msg = "Dearvaluable customer, we started servicing your vehicle. -TurismoAuto";
         String number = "94" + phone.substring(1);
+        String msg = message+"+RGD+URL:-+https://erecordroom.gov/client/login";
 
         try {
-            URL textit = new URL("http://textit.biz/sendmsg/index.php?id=94773638063&pw=5584&to="+number+"&text="+message+"");
+            URL textit = new URL("http://textit.biz/sendmsg/index.php?id=94773638063&pw=5584&to="+number+"&text="+msg+"");
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(textit.openStream()));
 

@@ -6,6 +6,7 @@ import {RecodeManagementService} from "../../service/RecodeManagementService";
 import {Search} from "../../model/Search";
 import {RecordLog} from "../../model/RecordLog";
 import {RecodeLogService} from "../../service/RecodeLogService";
+import {SMSService} from "../../service/SMSService";
 
 @Component({
   selector: 'app-adrcheck-recode',
@@ -30,6 +31,7 @@ export class UserViewRecordComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private formBuilder: FormBuilder,
               private router: Router,
+              private smsService: SMSService,
               private recodeLogService: RecodeLogService,
               private recodeManagementService: RecodeManagementService) { }
 
@@ -151,9 +153,22 @@ export class UserViewRecordComponent implements OnInit {
     this.recordLog.reg_name = this.record.reg_name;
     this.recordLog.reg_address = this.record.reg_address;
 
+    let message = "Your+Certificate+"+this.record.certificate_id+"+\n+Process+COMPLETED.+\n+Thank+You.!";
+    this.smsSend(this.record.ip_id,message);
+
     this.recodeLogService.addRecordLog(this.recordLog).subscribe((result) => {
       if (result != null) {
         alert('Data Logged');
+      }
+    });
+  }
+
+  smsSend(phone_number,message){
+    this.smsService.sendSMS(phone_number,message.toString()).subscribe((sms) => {
+      if (sms == '0'){
+        console.log('SMS send success', sms);
+      } else {
+        console.log('SMS send error', sms);
       }
     });
   }
