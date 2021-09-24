@@ -191,8 +191,8 @@ export class AdRecodeComponent implements OnInit {
           console.log('user register error', result);
         } else {
           console.log("phone sms: "+phone_number);
-          // let message = certificate_id+'-----'+' This'+'-----'+'Certificate'+'-----'+'Request'+'-----'+'is'+'-----'+'Processing'+'-----'+'...';
-          let message = 'This_Certificate_Request_is_Processing';
+          console.log("certificate_id: "+certificate_id);
+          let message = "Your+Certificate+"+certificate_id+"+\n+accepted+for+PROCESSING.";
           this.smsService.sendSMS(phone_number,message.toString()).subscribe((sms) => {
             if (sms == '0'){
               console.log('SMS send success', sms);
