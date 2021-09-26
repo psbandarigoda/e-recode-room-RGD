@@ -25,4 +25,8 @@ export class RecodeLogService {
     return this.http.get<Array<RecordLog>>(environment.backend_url + URL + '/get/records/'+user);
   }
 
+  getRecodeRejectByUser() {
+    return this.http.get<Array<RecordLog>>(environment.backend_url + URL + '/get/reject');
+  }
+
 }

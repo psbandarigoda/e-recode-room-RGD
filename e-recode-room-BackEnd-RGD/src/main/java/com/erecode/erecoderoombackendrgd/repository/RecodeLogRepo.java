@@ -14,4 +14,7 @@ public interface RecodeLogRepo extends JpaRepository<RecordLog,String> {
     @Query(value = "FROM RecordLog WHERE adr=?1 OR ad=?1 OR print=?1 OR ip_id=?1")
     List<RecordLog> getRecodeListByUser(String user);
 
+    @Query(value = "FROM RecordLog WHERE client_status='rejected' ")
+    List<RecordLog> getRecodeRejectByUser();
+
 }

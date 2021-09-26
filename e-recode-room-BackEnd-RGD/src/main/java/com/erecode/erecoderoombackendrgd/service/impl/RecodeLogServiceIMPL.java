@@ -44,4 +44,10 @@ public class RecodeLogServiceIMPL implements RecodeLogService {
         List<RecordLog> records = recodeLogRepo.getRecodeListByUser(user);
         return records;
     }
+
+    @Override
+    public List<RecordLog> getRecodeRejectByUser() {
+        List<RecordLog> records = recodeLogRepo.getRecodeRejectByUser();
+        return records;
+    }
 }

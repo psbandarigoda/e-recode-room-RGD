@@ -49,4 +49,9 @@ public class RecodeLogController {
         return recodeLogService.getRecodeListByUser(user);
     }
 
+    @GetMapping(value = "/get/reject")
+    public List<RecordLog> getRecodeRejectByUser() {
+        return recodeLogService.getRecodeRejectByUser();
+    }
+
 }

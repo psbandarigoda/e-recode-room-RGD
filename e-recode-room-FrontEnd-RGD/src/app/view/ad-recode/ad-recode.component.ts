@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Record} from "../../model/Record";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -74,25 +74,33 @@ export class AdRecodeComponent implements OnInit {
               private smsService: SMSService,
               private recodeLogService: RecodeLogService,
               private userManagementSVR: UserManagementService,
-              private recodeManagementService: RecodeManagementService) { }
+              private recodeManagementService: RecodeManagementService) {
+  }
 
   ngOnInit(): void {
   }
 
   addRecode() {
-    this.record.ad = sessionStorage.getItem('loggedUser_nic');
-    this.record.ad_status = 'done';
-    this.record.adr_status = 'processing';
-    this.record.print_status = 'pending';
-    this.recodeManagementService.addRecode(this.record).subscribe((result) => {
-      if (result != null) {
-        alert('Record Added Successfully');
-        this.addRecordLog();
-        this.register();
-        this.record = new Record();
-        this.recodeForm.reset();
-      }
-    });
+    if (this.recodeForm['certificate_id'] == null || this.recodeForm['father_id'] == null ||
+      this.recodeForm['mother_id'] == null || this.recodeForm['permanent_address'] == null ||
+      this.recodeForm['gf_id'] == null || this.recodeForm['ip_id'] == null ||
+      this.recodeForm['reg_id'] == null || this.recodeForm['child_name_e'] == null) {
+      alert('Please Fill All Fields');
+    } else {
+      this.record.ad = sessionStorage.getItem('loggedUser_nic');
+      this.record.ad_status = 'done';
+      this.record.adr_status = 'processing';
+      this.record.print_status = 'pending';
+      this.recodeManagementService.addRecode(this.record).subscribe((result) => {
+        if (result != null) {
+          alert('Record Added Successfully');
+          this.addRecordLog();
+          this.register();
+          this.record = new Record();
+          this.recodeForm.reset();
+        }
+      });
+    }
   }
 
   addRecordLog() {
@@ -181,19 +189,19 @@ export class AdRecodeComponent implements OnInit {
     user.email = this.record.ip_email;
     user.first_name = this.record.ip_name;
     user.last_name = '';
-    user.tel =  Number(this.record.ip_phone);
+    user.tel = Number(this.record.ip_phone);
     user.position = 'USER';
-    user.password = this.record.ip_id.substr(0,3)+'@'+this.record.ip_name.substr(0,3);
+    user.password = this.record.ip_id.substr(0, 3) + '@' + this.record.ip_name.substr(0, 3);
 
-    if (user != null){
+    if (user != null) {
       this.userManagementSVR.register(user).subscribe((result) => {
         if (result == null) {
           console.log('user register error', result);
         } else {
-          let message = "Your+Certificate+"+certificate_id+"+\n+accepted+for+PROCESSING.+\n+Monitoring+System+Login+\n+Username:-+"+nic+"+\n+Password:-+"+user.password+" ";
-          console.log("message: "+message);
-          this.smsService.sendSMS(phone_number,message.toString()).subscribe((sms) => {
-            if (sms == '0'){
+          let message = "Your+Certificate+" + certificate_id + "+\n+accepted+for+PROCESSING.+\n+Monitoring+System+Login+\n+Username:-+" + nic + "+\n+Password:-+" + user.password + " ";
+          console.log("message: " + message);
+          this.smsService.sendSMS(phone_number, message.toString()).subscribe((sms) => {
+            if (sms == '0') {
               console.log('SMS send success', sms);
             } else {
               console.log('SMS send error', sms);

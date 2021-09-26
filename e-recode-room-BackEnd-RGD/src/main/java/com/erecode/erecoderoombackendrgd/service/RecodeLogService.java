@@ -15,4 +15,6 @@ public interface RecodeLogService {
 
     List<RecordLog> getRecodeListByUser(String user);
 
+    List<RecordLog> getRecodeRejectByUser();
+
 }

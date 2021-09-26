@@ -18,7 +18,7 @@
                     <input [(ngModel)]="record.certificate_id"
                            [ngClass]="{'is-invalid':recodeForm.get('certificate_id').touched && recodeForm.get('certificate_id').invalid}"
                            class="form-control" formControlName="certificate_id" name="certificate_id" type="text"
-                           placeholder="Certificate Number">
+                           placeholder="Certificate Number" minlength="4" maxlength="4">
                   </div>
                 </div>
               </div>
@@ -76,20 +76,20 @@
                 </div>
                 <div class="col-sm-4 col-md-4">
                   <div class="mb-3">
-                    <label class="form-label">Child's Birth Weight</label>
+                    <label class="form-label">Child's Birth Weight (kg)</label>
                     <input [(ngModel)]="record.child_birth_weight"
                            [ngClass]="{'is-invalid':recodeForm.get('child_birth_weight').touched && recodeForm.get('child_birth_weight').invalid}"
                            class="form-control" formControlName="child_birth_weight" name="child_birth_weight"
-                           type="text" placeholder="Child's Birth Weight">
+                           type="number" placeholder="Child's Birth Weight">
                   </div>
                 </div>
                 <div class="col-sm-4 col-md-4">
                   <div class="mb-3">
-                    <label class="form-label">No of Child</label>
+                    <label class="form-label">Number of Child</label>
                     <input [(ngModel)]="record.child_count"
                            [ngClass]="{'is-invalid':recodeForm.get('child_count').touched && recodeForm.get('child_count').invalid}"
-                           class="form-control" formControlName="child_count" name="child_count" type="text"
-                           placeholder="No of Child">
+                           class="form-control" formControlName="child_count" name="child_count" type="number"
+                           placeholder="Number of Child">
                   </div>
                 </div>
               </div>
@@ -103,7 +103,7 @@
                     <input [(ngModel)]="record.father_id"
                            [ngClass]="{'is-invalid':recodeForm.get('father_id').touched && recodeForm.get('father_id').invalid}"
                            class="form-control" formControlName="father_id" name="father_id" type="text"
-                           placeholder="Father's ID">
+                           placeholder="Father's ID" minlength="10" maxlength="12">
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-12">
@@ -164,7 +164,7 @@
                     <input [(ngModel)]="record.mother_id"
                            [ngClass]="{'is-invalid':recodeForm.get('mother_id').touched && recodeForm.get('mother_id').invalid}"
                            class="form-control" formControlName="mother_id" name="mother_id" type="text"
-                           placeholder="Mother's ID">
+                           placeholder="Mother's ID"  minlength="10" maxlength="12">
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-12">
@@ -200,7 +200,7 @@
                     <input [(ngModel)]="record.mother_age_at_birth_of_a_child"
                            [ngClass]="{'is-invalid':recodeForm.get('mother_age_at_birth_of_a_child').touched && recodeForm.get('mother_age_at_birth_of_a_child').invalid}"
                            class="form-control" formControlName="mother_age_at_birth_of_a_child"
-                           name="mother_age_at_birth_of_a_child" type="text"
+                           name="mother_age_at_birth_of_a_child" type="number"
                            placeholder="Mother's age">
                   </div>
                 </div>
@@ -267,7 +267,7 @@
                     <input [(ngModel)]="record.gf_id"
                            [ngClass]="{'is-invalid':recodeForm.get('gf_id').touched && recodeForm.get('gf_id').invalid}"
                            class="form-control" formControlName="gf_id" name="gf_id" type="text"
-                           placeholder="Grandfather's ID">
+                           placeholder="Grandfather's ID"  minlength="10" maxlength="12">
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-12">
@@ -308,7 +308,7 @@
                     <input [(ngModel)]="record.ip_id"
                            [ngClass]="{'is-invalid':recodeForm.get('ip_id').touched && recodeForm.get('ip_id').invalid}"
                            class="form-control" formControlName="ip_id" name="ip_id" type="text"
-                           placeholder="Information Provider's ID">
+                           placeholder="Information Provider's ID" minlength="10" maxlength="12">
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-12">
@@ -343,7 +343,7 @@
                     <label class="form-label">Information Provider's Email</label>
                     <input [(ngModel)]="record.ip_email"
                            [ngClass]="{'is-invalid':recodeForm.get('ip_email').touched && recodeForm.get('ip_email').invalid}"
-                           class="form-control" formControlName="ip_email" name="ip_email" type="text"
+                           class="form-control" formControlName="ip_email" name="ip_email" type="email"
                            placeholder="Information Provider's Email">
                   </div>
                 </div>
@@ -367,7 +367,7 @@
                     <input [(ngModel)]="record.reg_id"
                            [ngClass]="{'is-invalid':recodeForm.get('reg_id').touched && recodeForm.get('reg_id').invalid}"
                            class="form-control" formControlName="reg_id" name="reg_id" type="text"
-                           placeholder="Registrar's ID">
+                           placeholder="Registrar's ID" minlength="10" maxlength="12">
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-12">

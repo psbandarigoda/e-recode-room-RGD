@@ -1,1 +1,66 @@
-<p>dashboard works!</p>
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+  <div class="edit-profile">
+    <div class="row">
+      <div class="col-xl-12">
+        <form class="card">
+          <div class="card-header">
+            <h4 class="card-title mb-0">View Record</h4>
+          </div>
+          <div class="card-body" *ngIf="filter_record_available == false">
+            <p *ngIf="filter_record_available == false" class="error-msg"> No Record Found ! </p>
+          </div>
+
+          <div class="card-body" *ngIf="filter_record_available == true">
+
+            <!--              History Info Head-->
+            <div class="row">
+              <div class="col-sm-1 col-md-1">ID</div>
+              <div class="col-sm-1 col-md-1">Status</div>
+              <div class="col-sm-1 col-md-1">ADR</div>
+              <div class="col-sm-4 col-md-4">Reason</div>
+              <div class="col-sm-2 col-md-2">IP ID</div>
+              <div class="col-sm-4 col-md-2">IP Email</div>
+              <div class="col-sm-4 col-md-1">Assign</div>
+            </div>
+            <hr>
+
+            <!--              History Info-->
+            <div class="row" *ngFor="let res of record">
+              <div class="col-sm-1 col-md-1">{{res.certificate_id}}</div>
+              <div class="col-sm-1 col-md-1">{{res.client_status}}</div>
+              <div class="col-sm-1 col-md-1">{{res.adr_status}}</div>
+              <div class="col-sm-4 col-md-4">{{res.client}}</div>
+              <div class="col-sm-2 col-md-2">{{res.ip_id}}</div>
+              <div class="col-sm-4 col-md-2">{{res.ip_email}}</div>
+              <div class="col-sm-4 col-md-1">
+                <button class="btn btn-primary" type="submit">Assign</button>
+              </div>
+            </div>
+            <hr>
+
+          </div>
+          <!--          <div class="card-footer text-end">-->
+          <!--            <button class="btn btn-primary" type="submit" >Filter Rest <span-->
+          <!--              class="icon-reload"></span></button>-->
+          <!--          </div>-->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- footer start-->
+<footer class="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 footer-copyright">
+        <p class="mb-0">Copyright 2021 © nZO All rights reserved.</p>
+      </div>
+      <div class="col-md-6">
+        <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
