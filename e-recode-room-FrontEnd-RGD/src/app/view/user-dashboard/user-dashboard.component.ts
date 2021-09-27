@@ -20,6 +20,7 @@ export class UserDashboardComponent implements OnInit {
   level: number;
   record: Array<Record> = new Array<Record>();
   URL_RETURN_VIEW_RECORD: string;
+  VIEW_BUTTON = false;
 
   constructor(private route: ActivatedRoute,
               private formBuilder: FormBuilder,
@@ -31,6 +32,11 @@ export class UserDashboardComponent implements OnInit {
     this.user = sessionStorage.getItem('loggedUser');
     this.URL_RETURN_VIEW_RECORD = this.route.snapshot.queryParams.URL_RETURN_VIEW_RECORD || 'user-view-record';
     this.viewRecord();
+    this.record.forEach(res => {
+      if (res.print_status == 'done') {
+        this.VIEW_BUTTON = true;
+      }
+    })
   }
 
   logout(){
