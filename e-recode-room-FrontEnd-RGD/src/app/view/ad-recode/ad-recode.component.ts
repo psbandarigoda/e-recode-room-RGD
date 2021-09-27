@@ -81,10 +81,10 @@ export class AdRecodeComponent implements OnInit {
   }
 
   addRecode() {
-    if (this.recodeForm['certificate_id'] == null || this.recodeForm['father_id'] == null ||
-      this.recodeForm['mother_id'] == null || this.recodeForm['permanent_address'] == null ||
-      this.recodeForm['gf_id'] == null || this.recodeForm['ip_id'] == null ||
-      this.recodeForm['reg_id'] == null || this.recodeForm['child_name_e'] == null) {
+    if (this.record.certificate_id == null || this.record.father_id == null ||
+      this.record.mother_id == null || this.record.permanent_address == null ||
+      this.record.gf_id == null || this.record.ip_id == null ||
+      this.record.reg_id == null || this.record.child_name_e == null) {
       alert('Please Fill All Fields');
     } else {
       this.record.ad = sessionStorage.getItem('loggedUser_nic');
